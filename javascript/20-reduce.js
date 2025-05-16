@@ -4,11 +4,22 @@ console.log('\n========== JavaScript reduce() ==========\n');
 const array = [1, 2, 3, 4, 5, 6];
 
 // Reducer function
-const reducer = (accumulator, current) => accumulator + current;
+const reducer = (acc, curr) => acc + curr;
 
-let sum = array.reduce(reducer);
+// acc  |  curr
+// ============
+// 0    |   1       apply reducer function => 0 + 1 = 1
+// 1    |   2                              => 1 + 2 = 3
+// 3    |   3                              => 3 + 3 = 6
+// 6    |   4                              => 6 + 4 = 10
+// 10   |   5                              => 10 + 5 = 15
+// 15   |   6                              => 15 + 6 = 21
 
-console.log(sum);
+// return value => 21
+
+let result = array.reduce(reducer);
+
+console.log(result);
 // 21
 
 sum = array.reduce(reducer, 50);
@@ -24,7 +35,7 @@ const characters = [
   { id: 20, name: 'Robb', house: 'Stark' },
 ];
 
-// Return the sum of all ids in the characters array
+// // Return the sum of all ids in the characters array
 const ids = characters.reduce((acc, curr) => acc + curr.id, 0);
 
 console.log(ids);
