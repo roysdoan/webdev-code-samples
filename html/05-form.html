@@ -8,11 +8,11 @@
   </head>
   <body>
     <main>
-      <form action="/submit">
+      <form method="post" action="/submitquestion">
         <h1>Submit a Question</h1>
         <div>
           <label for="name">Full Name:</label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="name" name="username" />
         </div>
         <br />
         <div>
@@ -22,28 +22,49 @@
         <br />
         <fieldset>
           <legend>Which class section are you enrolled in?</legend>
-          <input type="radio" id="cs463" name="section" value="CS 463" />
+          <input type="radio" id="cs463" name="webdev" value="cs463" />
           <label for="cs463">CS 463</label>
-          <input type="radio" id="cs563" name="section" value="CS 563" />
+          <input type="radio" id="cs563" name="webdev" value="cs563" />
           <label for="cs563">CS 563</label>
         </fieldset>
         <br />
+        <fieldset>
+          <legend>What topics do you have questions about</legend>
+          <input type="checkbox" id="git" name="topics" value="git" />
+          <label for="git">Git</label>
+          <input type="checkbox" id="html" name="topics" value="html" />
+          <label for="html">HTML</label>
+          <input type="checkbox" id="css" name="topics" value="css" />
+          <label for="css">CSS</label>
+          <input
+            type="checkbox"
+            id="bootstrap"
+            name="topics"
+            value="bootstrap" />
+          <label for="bootstrap">Bootstrap</label>
+          <input type="checkbox" id="js" name="topics" value="javascript" />
+          <label for="js">JavaScript</label>
+          <input type="checkbox" id="node" name="topics" value="node" />
+          <label for="node">Node.js</label>
+        </fieldset>
+        <br />
         <div>
-          <label for="topic">What topic do you have a question about?:</label>
-          <select id="topic" name="topic">
+          <label for="assignments"
+            >What assignment are you currently working on?</label
+          >
+          <select id="assignments">
             <option value="">Select One:</option>
-            <option value="git">Git</option>
-            <option value="html">HTML</option>
-            <option value="css">CSS</option>
-            <option value="js">JavaScript</option>
-            <option value="http">HTTP</option>
-            <option value="node">Node.js</option>
-            <option value="deployment">Deployment</option>
+            <option value="hw1">HW 1</option>
+            <option value="hw2">HW 2</option>
+            <option value="hw3">HW 3</option>
+            <option value="hw4">HW 4</option>
+            <option value="labs">Lab Notebook</option>
+            <option value="javascript">Final Project</option>
           </select>
         </div>
         <br />
         <div>
-          <label for="question">What is your question?</label>
+          <label for="question" width="600">What is your question?</label>
           <br />
           <textarea name="textarea" id="question"></textarea>
         </div>
@@ -54,7 +75,7 @@
         </div>
         <br />
         <div>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit Form" />
           <input type="reset" value="Reset" />
         </div>
       </form>
