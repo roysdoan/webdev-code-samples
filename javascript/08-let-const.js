@@ -1,5 +1,23 @@
 console.log('\n========== JavaScript let and const ==========\n');
 
+console.log('\n========== var (must avoid using) ==========\n');
+{
+  console.log(quote, author);
+  // undefined undefined
+
+  var quote = 'And may the odds be ever in your favor.';
+  console.log(quote);
+  // And may the odds be ever in your favor.
+
+  var author = 'Suzanne Collins';
+  console.log(author);
+  // Suzanne Collins
+
+  var book = 'The Hunger Games';
+  console.log(book);
+  // The Hunger Games
+}
+
 console.log('\n========== let ==========\n');
 {
   let quote = 'The past is not dead.';
@@ -57,8 +75,8 @@ console.log('\n========== scope ==========\n');
 }
 
 console.log(author);
-// console.log(quote);
-// console.log(book);
+console.log(quote);
+console.log(book);
 
 console.log('\n========== checkScope() ==========\n');
 
