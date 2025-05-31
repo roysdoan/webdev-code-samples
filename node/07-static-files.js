@@ -6,6 +6,10 @@ const port = process.env.PORT || 5001;
 const file = new static.Server('./public');
 
 const server = http.createServer((req, res) => {
+  if (req.method === 'GET' && req.url === '/food') {
+    file.serveFile('/pizza.html', 200, {}, req, res);
+  }
+
   // form route --> /form
   if (req.method === 'GET' && req.url === '/form') {
     file.serveFile('/form.html', 200, {}, req, res);
@@ -20,11 +24,17 @@ const server = http.createServer((req, res) => {
 
     req.on('end', () => {
       const userdata = querystring.parse(body);
-      const { username, email } = userdata;
+      console.log(userdata);
+      const { username, email, newsletter } = userdata;
 
       res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.write(`<p>Username: ${username}</p>`);
-      res.write(`<p>Email: ${email}</p>`);
+      res.write(`<p>This is username: ${username}</p>`);
+      res.write(`<p>This is the email: ${email}</p>`);
+      res.write(
+        `<p>The user has checked the newsletter checkbox: ${
+          newsletter || 'no'
+        }</p>`
+      );
       res.end();
     });
   }
