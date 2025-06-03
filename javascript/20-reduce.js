@@ -33,10 +33,22 @@ const characters = [
   { id: 16, name: 'Eddard', house: 'Stark' },
   { id: 17, name: 'Catelyn', house: 'Stark' },
   { id: 20, name: 'Robb', house: 'Stark' },
+  { id: 22, name: 'Jamie', house: 'Lannister' },
+  { id: 23, name: 'Tyrion', house: 'Lannister' },
 ];
 
-// // Return the sum of all ids in the characters array
+// Return the sum of all ids in the characters array
 const ids = characters.reduce((acc, curr) => acc + curr.id, 0);
 
 console.log(ids);
-// 58
+// 103
+
+// Return the number of characters in each house
+const houses = characters.reduce((acc, curr) => {
+  acc.hasOwnProperty(curr.house) ? acc[curr.house]++ : (acc[curr.house] = 1);
+
+  return acc;
+}, {});
+
+console.log(houses);
+// { Stark: 5, Lannister: 2 }
