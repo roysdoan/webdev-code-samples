@@ -7,6 +7,7 @@ $(document).ready(() => {
         .css({ display: 'inline-block' })
         .attr({
           class: 'box',
+          id: i,
         })
         .css({
           width: '5em',
